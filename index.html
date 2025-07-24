@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TocToc</title>
+    <meta name="application-name" content="TocToc" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+
+  <body data-view="welcome">
+    <div id="welcomeView">
+      <div class="welcome">
+        <header>
+          <h1>TocToc</h1>
+        </header>
+        <main>
+          <h2>Write your PDF table of contents in plain text</h2>
+          <ul>
+            <li>
+              <pre>Page number: Page title</pre>
+            </li>
+            <li>One line for each entry.</li>
+            <li>Use indentation to create nesting.</li>
+          </ul>
+          <p>
+            As you type, a live preview of the corresponding page is shown so
+            you know you are being accurate.
+          </p>
+          <div class="cta">
+            <button class="ctaButton" id="ctaButton">Open File</button>
+            <p>
+              or,
+              <a id="viewExampleLink" href="/?example=true"
+                >view an example file</a
+              >.
+            </p>
+          </div>
+          <h2>No data leaves your device</h2>
+          <p>
+            Everything is done locally inside your browser. Powered by
+            <a href="https://mupdf.com/mupdf-js">MuPDF.js</a>.
+            <a href="https://github.com/imaginaryapps/toctoc"
+              >Check AGPL source code</a
+            >.
+          </p>
+          <h2>Auto generate the table of contents</h2>
+          <p>
+            In your AI assistant of choice,
+            <a href="prompt.txt">use this prompt</a> to generate the table of
+            contents in the expected format. Then, comeback here to review and
+            apply the response.
+          </p>
+        </main>
+      </div>
+    </div>
+    <div class="hidden" id="loadingView">
+      <p class="loading_text">Loading</p>
+    </div>
+    <div class="hidden" id="appView">
+      <div class="container" id="container">
+        <div class="header">
+          <div class="header-left">
+            <button id="openButton">Open</button>
+            <input
+              id="fileInput"
+              type="file"
+              accept=".pdf,.xps,application/pdf"
+              style="display: none"
+            />
+            <button id="saveButton">Save</button>
+            <button id="helpButton">Help</button>
+          </div>
+          <div class="header-center"></div>
+          <div class="header-right"></div>
+        </div>
+        <div class="split-panes">
+          <div class="pane left-pane">
+            <div id="tocEditor"></div>
+          </div>
+          <div class="separator"></div>
+          <div class="pane right-pane">
+            <img id="page" />
+          </div>
+        </div>
+        <div class="footer">
+          No data leaves your device. Powered by
+          <a href="https://mupdf.com/mupdf-js">MuPDF.js</a>.
+          <a href="https://github.com/imaginaryapps/toctoc"
+            >Check AGPL source code</a
+          >.
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
