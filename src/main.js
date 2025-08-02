@@ -503,6 +503,7 @@ document.body.addEventListener("drop", async (event) => {
 const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.has("example")) {
   window.history.replaceState({}, document.title, window.location.pathname);
+  switchView("loading");
   loadExampleFile();
 }
 
